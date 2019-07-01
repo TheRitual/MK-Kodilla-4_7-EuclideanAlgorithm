@@ -10,36 +10,54 @@ public class ColorizeText {
     private static final String PURPLE = "\u001B[35m";
     private static final String CYAN = "\u001B[36m";
     private static final String WHITE = "\u001B[37m";
+    private boolean isColorized;
 
-    public static String blue(String txt) {
-        return BLUE + txt + RESET;
+    public void setColorized(boolean colorized) {
+        isColorized = colorized;
     }
 
-    public static String black(String txt) {
-        return BLACK + txt + RESET;
+    ColorizeText(boolean colorize){
+        this.isColorized = colorize;
     }
 
-    public static String red(String txt) {
-        return RED + txt + RESET;
+    private String colorize(String color, String txt) {
+        if(isColorized) {
+            return color + txt + RESET;
+        }else
+        {
+            return txt;
+        }
     }
 
-    public static String green(String txt) {
-        return GREEN + txt + RESET;
+    public String blue(String txt) {
+        return colorize(BLUE,txt);
     }
 
-    public static String yellow(String txt) {
-        return YELLOW + txt + RESET;
+    public String black(String txt) {
+        return colorize(BLACK,txt);
     }
 
-    public static String purple(String txt) {
-        return PURPLE + txt + RESET;
+    public String red(String txt) {
+        return colorize(RED,txt);
     }
 
-    public static String cyan(String txt) {
-        return CYAN + txt + RESET;
+    public String green(String txt) {
+        return colorize(GREEN,txt);
     }
 
-    public static String white(String txt) {
-        return WHITE + txt + RESET;
+    public String yellow(String txt) {
+        return colorize(YELLOW,txt);
+    }
+
+    public String purple(String txt) {
+        return colorize(PURPLE,txt);
+    }
+
+    public String cyan(String txt) {
+        return colorize(CYAN,txt);
+    }
+
+    public String white(String txt) {
+        return colorize(WHITE,txt);
     }
 }

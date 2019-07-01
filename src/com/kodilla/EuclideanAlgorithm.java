@@ -1,36 +1,36 @@
 package com.kodilla;
 
 public class EuclideanAlgorithm {
-
-    public static void calculate(int a, int b) {
+    public static void calculate(int a, int b, boolean colorize) {
+        ColorizeText ct = new ColorizeText(colorize);
         if(a == 0 || b == 0) {
             System.out.println("Numbers can't be equal to 0");
         } else {
             if (a < 0) {
                 a *= -1;
-                System.out.println(ColorizeText.red("Numbers can't be negative! Changing a to " + a));
+                System.out.println(ct.red("Numbers can't be negative! Changing a to " + a));
             }
 
             if (b < 0) {
                 b *= -1;
-                System.out.println(ColorizeText.red("Numbers can't be negative! Changing b to " + b));
+                System.out.println(ct.red("Numbers can't be negative! Changing b to " + b));
             }
 
-            System.out.println(ColorizeText.yellow("a") + " = " + ColorizeText.yellow(Integer.toString(a)) + " & " + ColorizeText.blue("b") + " = " + ColorizeText.blue(Integer.toString(b)));
+            System.out.println(ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)));
 
             int step = 1;
             while (a != b) {
-                System.out.print(ColorizeText.purple("[STEP " + step + "] "));
+                System.out.print(ct.purple("[STEP " + step + "] "));
                 if (a > b) {
                     a -= b;
-                    System.out.println("{" + ColorizeText.yellow("a") + " > " + ColorizeText.blue("b") + "} -> {" + ColorizeText.yellow("a") + " -= " + ColorizeText.blue("b") + "}  -> {" + ColorizeText.yellow("a") + " = " + ColorizeText.yellow(Integer.toString(a)) + " & " + ColorizeText.blue("b") + " = " + ColorizeText.blue(Integer.toString(b)) + "}");
+                    System.out.println("{" + ct.yellow("a") + " > " + ct.blue("b") + "} -> {" + ct.yellow("a") + " -= " + ct.blue("b") + "}  -> {" + ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)) + "}");
                 } else {
                     b -= a;
-                    System.out.println("{" + ColorizeText.yellow("a") + " < " + ColorizeText.blue("b") + "} -> {" + ColorizeText.blue("b") + " -= " + ColorizeText.yellow("a") + "} -> {" + ColorizeText.yellow("a") + " = " + ColorizeText.yellow(Integer.toString(a)) + " & " + ColorizeText.blue("b") + " = " + ColorizeText.blue(Integer.toString(b)) + "}");
+                    System.out.println("{" + ct.yellow("a") + " < " + ct.blue("b") + "} -> {" + ct.blue("b") + " -= " + ct.yellow("a") + "} -> {" + ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)) + "}");
                 }
                 step++;
             }
         }
-        System.out.println(ColorizeText.green("Result ::: " + a));
+        System.out.println(ct.green("Result ::: " + a));
     }
 }
