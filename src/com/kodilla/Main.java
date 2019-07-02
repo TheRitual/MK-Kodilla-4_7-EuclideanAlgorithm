@@ -3,8 +3,8 @@ package com.kodilla;
 public class Main {
 
     public static void main(String[] args) {
-        int a = 123;
-        int b = 321;
+        int a = -123;
+        int b = -321;
         int c = 1;
         int d = 1;
 
@@ -19,7 +19,7 @@ public class Main {
                     d = Integer.parseInt(args[3]);
                 }
             }catch (NumberFormatException e) {
-                System.out.println("use arguments: numberA numberB colorize (1=colorize)");
+                System.out.println("use arguments: numberA numberB colorize (1=colorize) method (0=euclidian 1=modulo");
             }
         }
 

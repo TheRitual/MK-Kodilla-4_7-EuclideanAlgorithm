@@ -16,22 +16,24 @@ public class EuclideanAlgorithm {
                 System.out.println(ct.red("Numbers can't be negative! Changing b to " + b));
             }
 
-            System.out.println(ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)));
+            System.out.println(ct.yellow("a[" + a + "]") + " & " + ct.blue("b[" + b + "]"));
 
             int step = 1;
             while (a != b) {
-                System.out.print(ct.purple("[STEP " + step + "] "));
+                System.out.println(ct.purple("[STEP " + step + "] "));
                 if (a > b) {
+                    System.out.println("\t" + ct.yellow("a[" + a + "]") + " > " + ct.blue("b[" + b + "]") + " \u27A4 " + ct.yellow("a = a - ") + ct.blue("b"));
                     a -= b;
-                    System.out.println("{" + ct.yellow("a") + " > " + ct.blue("b") + "} -> {" + ct.yellow("a") + " -= " + ct.blue("b") + "}  -> {" + ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)) + "}");
+                    System.out.println("\t" + ct.yellow("a[" + a + "]") + " & " + ct.blue("b[" + b + "]"));
                 } else {
+                    System.out.println("\t" + ct.yellow("a[" + a + "]") + " < " + ct.blue("b[" + b + "]") + " \u27A4 " + ct.blue("b = b - ") + ct.yellow("a"));
                     b -= a;
-                    System.out.println("{" + ct.yellow("a") + " < " + ct.blue("b") + "} -> {" + ct.blue("b") + " -= " + ct.yellow("a") + "} -> {" + ct.yellow("a") + " = " + ct.yellow(Integer.toString(a)) + " & " + ct.blue("b") + " = " + ct.blue(Integer.toString(b)) + "}");
+                    System.out.println("\t" + ct.yellow("a[" + a + "]") + " & " + ct.blue("b[" + b + "]"));
                 }
                 step++;
             }
         }
-        System.out.println(ct.green("Result ::: " + a));
+        System.out.println(ct.cyan("Result ::: " + a));
     }
 
 
