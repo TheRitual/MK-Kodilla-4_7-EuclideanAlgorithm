@@ -33,4 +33,39 @@ public class EuclideanAlgorithm {
         }
         System.out.println(ct.green("Result ::: " + a));
     }
+
+
+
+    public static void moduloGcd(int a, int b, boolean colorize) {
+        ColorizeText ct = new ColorizeText(colorize);
+        int mod = a;
+        if(a == 0 || b == 0) {
+            System.out.println(ct.red("Numbers can't be equal to 0"));
+            mod = 0;
+        }
+
+        if(a < b) {
+            System.out.println(ct.cyan("Switching positions.\na is bigger number now"));
+            int c = a;
+            a = b;
+            b = c;
+        }
+
+        System.out.println(ct.yellow("a = " + a) + " & " + ct.blue("b = " + b));
+        int step = 1;
+        while(mod != 0) {
+            System.out.println(ct.purple("[STEP " + step + "]"));
+            mod = a % b;
+            System.out.println(ct.yellow("a[" + Integer.toString(a) + "]") + " % " + ct.blue("b[" + Integer.toString(b) + "]") + " = " + ct.green(Integer.toString(mod)));
+            if (mod != 0) {
+                a = b;
+                System.out.println("\t" + ct.yellow("a[" + Integer.toString(a) + "]") + " = " + ct.blue("b[" + Integer.toString(b) + "]"));
+                b = mod;
+                System.out.println("\t" + ct.yellow("b[" + Integer.toString(b) + "]") + " = " + ct.green("mod[" + Integer.toString(mod) + "]"));
+                step++;
+            }
+        }
+
+        System.out.println(ct.cyan("\nResult ::: " + b));
+    }
 }
